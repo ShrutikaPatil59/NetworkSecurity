@@ -1,0 +1,122 @@
+# schema.yaml
+# schema.yaml
+
+columns:
+  - name: id
+    dtype: int
+  - name: url
+    dtype: string
+  - name: having_ip_address
+    dtype: int
+  - name: url_length
+    dtype: int
+  - name: shortening_service
+    dtype: int
+  - name: having_at_symbol
+    dtype: int
+  - name: double_slash_redirect
+    dtype: int
+  - name: prefix_suffix
+    dtype: int
+  - name: having_sub_domain
+    dtype: int
+  - name: ssl_final_state
+    dtype: int
+  - name: domain_registration_length
+    dtype: int
+  - name: favicon
+    dtype: int
+  - name: port
+    dtype: int
+  - name: https_token
+    dtype: int
+  - name: request_url
+    dtype: int
+  - name: url_of_anchor
+    dtype: int
+  - name: links_in_tags
+    dtype: int
+  - name: sfh
+    dtype: int
+  - name: submitting_to_email
+    dtype: int
+  - name: abnormal_url
+    dtype: int
+  - name: redirect
+    dtype: int
+  - name: on_mouseover
+    dtype: int
+  - name: right_click
+    dtype: int
+  - name: popup_window
+    dtype: int
+  - name: iframe
+    dtype: int
+  - name: age_of_domain
+    dtype: int
+  - name: dns_record
+    dtype: int
+  - name: web_traffic
+    dtype: int
+  - name: page_rank
+    dtype: int
+  - name: google_index
+    dtype: int
+  - name: links_pointing_to_page
+    dtype: int
+  - name: statistical_report
+    dtype: int
+  - name: label
+    dtype: int
+
+target_column: label
+
+numerical_columns:
+  - id
+  - url_length
+  - domain_registration_length
+  - port
+  - links_in_tags
+  - web_traffic
+  - page_rank
+  - links_pointing_to_page
+
+categorical_columns:
+  - url
+  - having_ip_address
+  - shortening_service
+  - having_at_symbol
+  - double_slash_redirect
+  - prefix_suffix
+  - having_sub_domain
+  - ssl_final_state
+  - favicon
+  - https_token
+  - request_url
+  - url_of_anchor
+  - sfh
+  - submitting_to_email
+  - abnormal_url
+  - redirect
+  - on_mouseover
+  - right_click
+  - popup_window
+  - iframe
+  - age_of_domain
+  - dns_record
+  - google_index
+  - statistical_report
+
+domain_values:
+  label: [0, 1]  # 0 = Legitimate, 1 = Phishing
+  having_ip_address: [-1, 1]
+  shortening_service: [-1, 1]
+  having_at_symbol: [-1, 1]
+  double_slash_redirect: [-1, 1]
+  prefix_suffix: [-1, 1]
+  having_sub_domain: [-1, 0, 1]
+  ssl_final_state: [-1, 0, 1]
+  abnormal_url: [0, 1]
+  right_click: [0, 1]
+  popup_window: [0, 1]
+  iframe: [0, 1]

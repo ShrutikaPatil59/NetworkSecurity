@@ -1,0 +1,21 @@
+train_file: artifact/data_ingestion/train.csv
+train_valid: true
+test_file: artifact/data_ingestion/test.csv
+test_valid: true
+
+drift_report:
+  url_length:
+    p_value: 0.432
+    drift_detected: false
+  having_ip_address:
+    p_value: 0.028
+    drift_detected: true
+  ssl_final_state:
+    p_value: 0.672
+    drift_detected: false
+  web_traffic:
+    p_value: 0.051
+    drift_detected: false
+  label:
+    p_value: 1.0
+    drift_detected: false
