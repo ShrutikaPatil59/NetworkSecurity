@@ -3,6 +3,15 @@ import os
 
 from networksecurity.constant import training_pipeline
 
+# Root directory for all artifacts
+ARTIFACT_DIR = os.path.join(os.getcwd(), "artifacts")
+
+# Timestamped subdirectory for each pipeline run
+PIPELINE_TIMESTAMP = datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
+
+ARTIFACT_DIR = os.path.join(ARTIFACT_DIR, PIPELINE_TIMESTAMP)
+
+
 print(training_pipeline.PIPELINE_NAME)
 print(training_pipeline.ARTIFACT_DIR)
 
@@ -66,3 +75,27 @@ class DataValidationConfig:
         self.drift_report_file_path: str = os.path.join(
             self.drift_report_dir, training_pipeline.DATA_VALIDATION_DRIFT_REPORT_FILE_NAME
         )
+
+class ModelTrainerConfig:
+    def __init__(self, training_pipeline_config):
+        self.model_trainer_dir = os.path.join(training_pipeline_config.artifact_dir, "model_trainer")
+        self.trained_model_file_path = os.path.join(self.model_trainer_dir, "model.pkl")
+        os.makedirs(self.model_trainer_dir, exist_ok=True)
+
+
+class ModelEvaluationConfig:
+    def __init__(self, training_pipeline_config):
+        self.model_evaluation_dir = os.path.join(training_pipeline_config.artifact_dir, "model_evaluation")
+        self.report_file_path = os.path.join(self.model_evaluation_dir, "evaluation_report.yaml")
+        os.makedirs(self.model_evaluation_dir, exist_ok=True)
+
+
+class ModelPusherConfig:
+    def __init__(self, training_pipeline_config):
+        self.model_pusher_dir = os.path.join(training_pipeline_config.artifact_dir, "model_pusher")
+        self.saved_model_path = os.path.join(self.model_pusher_dir, "saved_model.pkl")
+        self.model_registry_path = os.path.join("saved_models", "latest_model.pkl")
+        os.makedirs(self.model_pusher_dir, exist_ok=True)
+        os.makedirs("saved_models", exist_ok=True)
+
+ 

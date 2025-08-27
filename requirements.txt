@@ -3,8 +3,12 @@ pandas
 numpy
 pymongo
 certifi
-pymongo[srv]==4.7
+pymongo[srv]
 scikit-learn
 PyYAML
-
+xgboost
+dagshub
+mlflow
+fastapi
+flask
 ##-e .
